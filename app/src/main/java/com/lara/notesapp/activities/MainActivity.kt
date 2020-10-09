@@ -1,8 +1,9 @@
-package com.lara.notesapp
+package com.lara.notesapp.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lara.notesapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 const val REQUEST_CODE_ADD_NOTE = 1
