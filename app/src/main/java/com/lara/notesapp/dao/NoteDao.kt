@@ -1,18 +1,19 @@
-package com.lara.notesapp
+package com.lara.notesapp.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.lara.notesapp.entities.Note
 
 @Dao
 interface NoteDao {
 
-    @Query("SELECT * FROm notes ORDER BY id DESC")
-    fun getAllNotes(): List<Note>
+    @Query("SELECT * FROM notes ORDER BY id DESC")
+    fun getAllNotes(): LiveData<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNote(newNote: Note)
+    suspend fun insertNote(newNote: Note)
 
     @Delete
-    fun deleteNote(noteToDelete: Note)
+    suspend fun deleteNote(noteToDelete: Note)
 
 }
